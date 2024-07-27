@@ -5,11 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 
 
-interface ExplorarProps {
-  onClick?: () => void
-}
-
-export const ExplorarButton = ({ onClick }: ExplorarProps) => {
+export const ExplorarButton = () => {
   const [showExplorarButton, setShowExplorarButton] = useState(false);
 
   const closeSideMenu = useUIStore(state => state.closeSideMenu);
@@ -23,8 +19,7 @@ export const ExplorarButton = ({ onClick }: ExplorarProps) => {
     } else {
       setShowExplorarButton(true);
       openSideMenu();
-    }
-    if (onClick) onClick();
+    } 
   };
 
   //funcion para dectectar click fuera del elemento especifico (referenciado por el dropdownRef). 

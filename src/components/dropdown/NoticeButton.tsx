@@ -4,11 +4,7 @@ import { useUIStore } from '@/store';
 import { useEffect, useRef, useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 
-interface NoticeButtonProps {
-  onClick?: () => void;
-}
-
-export const NoticeButton = ({ onClick }: NoticeButtonProps) => {
+export const NoticeButton = () => {
   const [showNoticeButton, setShowNoticeButton] = useState(false);
   const dropdownref = useRef<HTMLDivElement>(null);
 
@@ -23,7 +19,6 @@ export const NoticeButton = ({ onClick }: NoticeButtonProps) => {
       setShowNoticeButton(true);
       openSideMenu();
     }
-    if (onClick) onClick();
   };
 
   const handleClickOutside = (event: MouseEvent) => {
