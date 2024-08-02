@@ -52,7 +52,7 @@ export const NewAccount = () => {
                     >
                         Nombre de usuario
                     </label>
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
                 </div>
 
                 <div className="relative z-0 w-full mb-10 group">
