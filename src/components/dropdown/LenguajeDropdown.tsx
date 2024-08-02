@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-
 interface Languages {
   code: string;
   name: string;

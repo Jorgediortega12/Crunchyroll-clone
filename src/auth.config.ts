@@ -34,16 +34,11 @@ export const authConfig: NextAuthConfig = {
                 if (!parsedCredentials.success) return null;
                 const { email, password } = parsedCredentials.data;
 
-                console.log({ email, password });
-
-                //buscar nuestros usuarios.
                 const user = await prisma.users.findUnique({ where: { email: email.toLocaleLowerCase() } });
                 if (!user) return null; 
-
-                //comparar contraseñas.
+                
                 if (!bcryptjs.compareSync(password, user.password)) return null;
 
-                //regresar el usuario sin el password.
                 const { password: _, ...rest } = user;
 
                 return rest;
@@ -51,6 +46,5 @@ export const authConfig: NextAuthConfig = {
         }),
     ]
 };
-
 
 export const { signIn, signOut, auth, handlers } = NextAuth(authConfig);

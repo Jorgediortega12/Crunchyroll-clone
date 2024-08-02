@@ -6,7 +6,6 @@ import { useSession } from 'next-auth/react';
 import { IoIosSearch } from 'react-icons/io';
 import { IoBookmarkOutline } from 'react-icons/io5';
 import Link from 'next/link';
-import { useState } from 'react';
 import { useUIStore } from '@/store';
 
 export const Navbar = () => {
@@ -15,8 +14,6 @@ export const Navbar = () => {
 
   const isSideMenuOpen = useUIStore(state => state.isSideMenuOpen);
   const closeSideMenu = useUIStore(state => state.closeSideMenu);
-
-  const [activeButton, setActiveButton] = useState<string | null>(null);
 
   const handleOverlayClick = () => closeSideMenu();
 

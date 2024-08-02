@@ -1,15 +1,12 @@
 'use server'
 
 import { signIn } from '@/auth.config';
-import { sleep } from '@/utils';
 
 export async function authenticated(
     prevState: string | undefined,
     formData: FormData
 ) {
-    try {
-
-        // await sleep(2); 
+    try { 
 
         await signIn('credentials', {
             ...Object.fromEntries(formData),
@@ -24,7 +21,6 @@ export async function authenticated(
     }
 }
 
-//autenticación de usuario.
 export const login = async (email: string, password: string) => {
     try {
         await signIn('credentials',{email, password})
